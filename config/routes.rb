@@ -1,4 +1,6 @@
 Ffsched::Application.routes.draw do
+  get "teams/new"
+
   get "leagues/new"
 
   root to: 'static_pages#home'
