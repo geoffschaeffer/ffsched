@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920062111) do
+ActiveRecord::Schema.define(:version => 20120922210347) do
 
   create_table "leagues", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(:version => 20120920062111) do
     t.string   "owner"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "league_id"
   end
+
+  add_index "teams", ["league_id"], :name => "index_teams_on_league_id"
 
 end
