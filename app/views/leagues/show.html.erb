@@ -1,2 +1,5 @@
 <% provide(:title, @league.name) %>
 <h1><%= @league.name %></h1>
+<div class="center">
+  <%= link_to "Show leagues", leagues_path, class: "btn btn-large btn-primary" %>
+</div>

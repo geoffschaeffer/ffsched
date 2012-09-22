@@ -1,0 +1,24 @@
+<% provide(:title, 'All teams') %>
+<h1>All teams</h1>
+<ul class="teams">
+  <% @teams.each do |team| %>
+    <li>
+      <div class="row-fluid">
+        <div class="span3">
+          <%= link_to team.name, team %>
+        </div>
+        <%= link_to "Edit", edit_team_path(team), class: "btn btn-mini btn-primary" %>
+
+        <%= link_to "Delete", team, method: :delete,
+                    data: { confirm: "Are you certain?" },
+                    title: team.name,
+                    class: "btn btn-mini btn-primary" %>
+      </div>
+    </li>
+  <% end %>
+  <li>
+    <div class="center">
+      <%= link_to "Add new team", new_team_path, class: "btn btn-mini btn-primary" %>
+    </div>
+  </li>
+</ul>
