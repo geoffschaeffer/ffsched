@@ -1,0 +1,13 @@
+<li>
+  <div class="row-fluid">
+    <div class="span3">
+      <%= link_to team.name, league_team_path(@league, team) %>
+    </div>
+    <%= link_to "Edit", edit_league_team_path(@league, team), class: "btn btn-mini btn-primary" %>
+
+    <%= link_to "Delete", league_team_path(@league, team), method: :delete,
+                data: { confirm: "Are you certain?" },
+                title: team.name,
+                class: "btn btn-mini btn-primary" %>
+  </div>
+</li>

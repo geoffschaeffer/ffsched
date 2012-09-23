@@ -1,6 +1,7 @@
 Ffsched::Application.routes.draw do
-  resources :leagues
-  resources :teams
+  resources :leagues do
+    resources :teams
+  end
 
   root to: 'static_pages#home'
 

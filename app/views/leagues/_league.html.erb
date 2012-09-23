@@ -1,0 +1,13 @@
+<li>
+  <div class="row-fluid">
+    <div class="span3">
+      <%= link_to league.name, league %>
+    </div>
+    <%= link_to "Rename", edit_league_path(league), class: "btn btn-mini btn-primary" %>
+
+    <%= link_to "Delete", league, method: :delete,
+                data: { confirm: "Are you certain?" },
+                title: league.name,
+                class: "btn btn-mini btn-primary" %>
+  </div>
+</li>

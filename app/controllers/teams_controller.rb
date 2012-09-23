@@ -1,7 +1,8 @@
 class TeamsController < ApplicationController
+  before_filter :league_fetch
 
   def index
-    @teams = Team.all
+    @teams = @league.teams
   end
 
   def show
@@ -9,22 +10,22 @@ class TeamsController < ApplicationController
   end
 
   def new
-    @team = Team.new
+    @team = @league.teams.build
   end
 
   def create
-    @team = Team.new(params[:team])
+    @team = @league.teams.build( params[:team])
     if @team.save
       # Handle a successful save.
       flash[:success] = "Created Team!"
-      redirect_to teams_path
+      redirect_to league_path(@league)
     else
       render 'new'
     end
   end
 
   def edit
-    @team = Team.find(params[:id])
+    @team = @league.teams.find(params[:id])
   end
 
   def update
@@ -32,15 +33,22 @@ class TeamsController < ApplicationController
     if @team.update_attributes(params[:team])
       # Handle a successful update.
       flash[:success] = "Team updated"
-      redirect_to teams_path
+      redirect_to league_path(@league)
     else
       render 'edit'
     end
   end
 
   def destroy
-    Team.find(params[:id]).destroy
+    @team = @league.teams.find_by_id(params[:id])
+    @team.destroy
     flash[:success] = "Team destroyed."
-    redirect_to teams_path
+    redirect_to league_path(@league)
+  end
+
+  private
+
+  def league_fetch
+    @league = League.find(params[:league_id])
   end
 end

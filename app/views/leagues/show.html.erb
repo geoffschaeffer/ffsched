@@ -1,5 +1,16 @@
 <% provide(:title, @league.name) %>
 <h1><%= @league.name %></h1>
+<ul class="teams">
+  <% if @league.teams.any? %>
+    <h3>Teams</h3>
+    <%= render @teams %>
+  <% end %>
+  <li>
+    <div class="center">
+      <%= link_to "Add new team", new_league_team_path(@league), class: "btn btn-mini btn-primary" %>
+    </div>
+  </li>
+</ul>
 <div class="center">
   <%= link_to "Show leagues", leagues_path, class: "btn btn-large btn-primary" %>
 </div>
