@@ -5,13 +5,16 @@
     <h3>Teams</h3>
     <%= render @teams %>
   <% end %>
+  <li>
+    <div class="center">
+      <h4><%= "#{pluralize(@league.teams.length, "team")} created, #{pluralize(@league.get_max_teams, "team")} allowed" %></h4>
+    </div>
   <% if @league.has_room? %>
-    <li>
-      <div class="center">
-        <%= link_to "Add new team", new_league_team_path(@league), class: "btn btn-mini btn-primary" %>
-      </div>
-    </li>
+    <div class="center">
+      <%= link_to "Add new team", new_league_team_path(@league), class: "btn btn-mini btn-primary" %>
+    </div>
   <% end %>
+  </li>
 </ul>
 <div class="center">
   <%= link_to "Show leagues", leagues_path, class: "btn btn-large btn-primary" %>

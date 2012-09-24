@@ -1,13 +1,20 @@
+<% if @league.team_index_even?(team) %>
 <li>
   <div class="row-fluid">
-    <div class="span3">
+<% end %>
+  <!-- maybe I can play with this some more and get it working -->
+    <div class="<%= @league.team_index_even?(team) ? "span3" : "span3 offset6" %>">
       <%= link_to team.name, league_team_path(@league, team) %>
     </div>
-    <%= link_to "Edit", edit_league_team_path(@league, team), class: "btn btn-mini btn-primary" %>
+    <div class="<%= @league.team_index_even?(team) ? "span3 offset3" : "span3 offset9" %>">
+      <%= link_to "Edit", edit_league_team_path(@league, team), class: "btn btn-mini btn-primary" %>
 
-    <%= link_to "Delete", league_team_path(@league, team), method: :delete,
-                data: { confirm: "Are you certain?" },
-                title: team.name,
-                class: "btn btn-mini btn-primary" %>
+      <%= link_to "Delete", league_team_path(@league, team), method: :delete,
+                  data: { confirm: "Are you certain?" },
+                  title: team.name,
+                  class: "btn btn-mini btn-primary" %>
+     </div>
+<% if !@league.team_index_even?(team) || @league.team_index_last(team)%>
   </div>
 </li>
+<% end %>
