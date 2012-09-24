@@ -1,7 +1,10 @@
 class LeaguesController < ApplicationController
 
+  respond_to :html
+  respond_to :xml
+
   def index
-    @leagues = League.all
+    respond_with(@leagues = League.all)
   end
 
   def show

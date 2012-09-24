@@ -1,0 +1,5 @@
+Index example:
+curl http://localhost:3000/leagues.xml
+
+Show example:
+curl http://localhost:3000/leagues/1.xml
