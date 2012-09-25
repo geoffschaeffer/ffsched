@@ -12,7 +12,9 @@
       <%= link_to "Delete", league_team_path(@league, team), method: :delete,
                   data: { confirm: "Are you certain?" },
                   title: team.name,
-                  class: "btn btn-mini btn-primary" %>
+                  class: "btn btn-mini btn-primary",
+                  remote: true %>
+
      </div>
 <% if !@league.team_index_even?(team) || @league.team_index_last(team)%>
   </div>
