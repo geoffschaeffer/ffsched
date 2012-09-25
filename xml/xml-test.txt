@@ -3,3 +3,19 @@ curl http://localhost:3000/leagues.xml
 
 Show example:
 curl http://localhost:3000/leagues/1.xml
+
+New example:
+curl http://localhost:3000/leagues/new.xml
+
+Create example:
+curl -v -H "Content-Type: application/xml; charset=utf-8" --data-ascii @./xml/new.xml http://localhost:3000/leagues.xml
+
+Edit example:
+curl http://localhost:3000/leagues/20/edit.xml
+
+Update example:
+curl -v -H "Content-Type: application/xml; charset=utf8" -T ./xml/update.xml http://localhost:3000/leagues/20.xml
+
+Delete example:
+//Do later
+
