@@ -1,7 +1,7 @@
 <% provide(:title, 'All leagues') %>
 <h1>All leagues</h1>
 <ul class="leagues">
-  <%= render @leagues %>
+  <%= render partial: 'league', collection: @leagues, locals: {:league_count => @leagues.length} %>
   <li>
     <div class="center">
       <%= link_to "Add new league", new_league_path, class: "btn btn-mini btn-primary" %>
