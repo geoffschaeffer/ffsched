@@ -42,7 +42,7 @@ class TeamsController < ApplicationController
   def destroy
     @team = @league.teams.find_by_id(params[:id])
     @team.destroy
-    flash[:success] = "Team destroyed."
+    #flash[:success] = "Team destroyed."
     respond_to do |format|
       format.html { redirect_to league_path(@league) }
       format.js

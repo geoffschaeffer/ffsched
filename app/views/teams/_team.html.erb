@@ -2,7 +2,6 @@
 <li>
   <div class="row-fluid">
 <% end %>
-  <!-- maybe I can play with this some more and get it working -->
     <div class="<%= @league.team_index_even?(team) ? "span3" : "span3 offset6" %>">
       <%= link_to team.name, league_team_path(@league, team) %>
     </div>
@@ -14,8 +13,7 @@
                   title: team.name,
                   class: "btn btn-mini btn-primary",
                   remote: true %>
-
-     </div>
+    </div>
 <% if !@league.team_index_even?(team) || @league.team_index_last(team)%>
   </div>
 </li>
