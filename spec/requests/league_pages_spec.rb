@@ -116,5 +116,4 @@ describe "League pages" do
       specify { league.reload.name.should  == new_name }
     end
   end
-
 end
