@@ -34,6 +34,17 @@ describe "League pages" do
       it { should have_content(league.teams.count) }
     end
 
+    describe "while not at max teams" do
+      it { should have_content("Add new team") }
+    end
+
+    describe "while at max teams" do
+      before(:all) { 12.times { FactoryGirl.create(:team, league: league) } }
+      after(:all)  { Team.delete_all }
+
+      it { should_not have_content("Add new team") }
+    end
+
     describe "delete team" do
       it "should decrement the number of teams" do
         expect do
