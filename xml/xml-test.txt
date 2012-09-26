@@ -17,5 +17,5 @@ Update example:
 curl -v -H "Content-Type: application/xml; charset=utf8" -T ./xml/update.xml http://localhost:3000/leagues/20.xml
 
 Delete example:
-//Do later
+curl --request DELETE http://localhost:3000/leagues/21.xml
 

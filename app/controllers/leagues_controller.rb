@@ -27,7 +27,7 @@ class LeaguesController < ApplicationController
           flash[:success] = "Created League!"
           redirect_to leagues_path
         }
-        format.xml  { render xml: @league, status: :created, location: @person }
+        format.xml  { render xml: @league, status: :created, location: @league }
       else
         format.html { render 'new' }
         format.xml { render xml: @league.errors, status: :unprocessable_entity }
@@ -37,26 +37,34 @@ class LeaguesController < ApplicationController
 
   def edit
     @league = League.find(params[:id])
-    #TODO - is this correct?
     respond_with(@league)
   end
 
   def update
     @league = League.find(params[:id])
 
-    #TODO - rock this on Tues
-    if @league.update_attributes(params[:league])
-      # Handle a successful update.
-      flash[:success] = "League updated"
-      redirect_to leagues_path
-    else
-      render 'edit'
+    respond_to do |format|
+      if @league.update_attributes(params[:league])
+        format.html {
+          flash[:success] = "League updated"
+          redirect_to leagues_path
+        }
+        format.xml { head :ok }
+      else
+        format.html { render 'edit' }
+        format.xml { render xml: @league.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
     League.find(params[:id]).destroy
-    flash[:success] = "League destroyed."
-    redirect_to leagues_path
+    respond_to do |format|
+      format.html {
+        flash[:success] = "League destroyed."
+        redirect_to leagues_path
+      }
+      format.xml { head :ok }
+    end
   end
 end
