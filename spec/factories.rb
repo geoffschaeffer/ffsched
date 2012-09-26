@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :league do
-    name     "ILFFL"
+    sequence(:name)  { |n| "League #{n}" }
   end
 
   factory :team do
-    name     "The Kahunas"
-    owner    "Geoff"
+    sequence(:name)  { |n| "Team #{n}" }
+    sequence(:owner)  { |n| "Owner #{n}" }
   end
 end
