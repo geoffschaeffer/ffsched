@@ -5,6 +5,10 @@ class MatchupsController < ApplicationController
     @matchups = @league.matchups
   end
 
+  def show
+    @matchup = Matchup.find(params[:id])
+  end
+
   def new
     @matchup = @league.matchups.build
   end

@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @matchups = get_matchups
   end
 
   def new
@@ -53,5 +54,10 @@ class TeamsController < ApplicationController
 
   def league_fetch
     @league = League.find(params[:league_id])
+  end
+
+  def get_matchups
+    @match_list = @team.home_matchups + @team.away_matchups
+    @match_list.sort_by{ |match| match[:week] }
   end
 end

@@ -1,6 +1,7 @@
 <% provide(:title, @team.name) %>
 <h1><%= @team.name %></h1>
 <h2><%= @team.owner %></h2>
+<%= render 'teams/matchup_list' %>
 <div class="center">
   <%= link_to "Back to league", league_path(@league), class: "btn btn-large btn-primary" %>
 </div>
