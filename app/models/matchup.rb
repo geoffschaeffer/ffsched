@@ -10,6 +10,7 @@ class Matchup < ActiveRecord::Base
   validates :league_id, presence: true
 
   validates_uniqueness_of :team1_id, { scope: :team2_id, message: "already has a matchup with Team2" }
+  validates_uniqueness_of :team2_id, { scope: :team1_id, message: "already has a matchup with Team1" }
 
   validates_uniqueness_of :team1_id, { scope: :week, message: "already has a matchup that week" }
   validates_uniqueness_of :team2_id, { scope: :week, message: "already has a matchup that week" }
