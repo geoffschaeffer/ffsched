@@ -57,7 +57,8 @@ class TeamsController < ApplicationController
   end
 
   def get_matchups
-    @match_list = @team.home_matchups + @team.away_matchups
+    #@match_list = @team.home_matchups + @team.away_matchups
+    @match_list = @team.matchups + @team.reverse_matchups
     @match_list.sort_by{ |match| match[:week] }
   end
 end

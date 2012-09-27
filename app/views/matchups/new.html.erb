@@ -16,6 +16,7 @@
       <%= f.select :week, (1..13).map{|u| [u,u]} %>
 
       <%= f.submit "Create matchup", class: "btn btn-large btn-primary" %>
+      <%= link_to "Cancel", league_matchups_path(@league), class: "btn btn-mini btn-primary" %>
     <% end %>
   </div>
 </div>

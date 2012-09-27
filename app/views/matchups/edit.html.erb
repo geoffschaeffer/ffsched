@@ -16,6 +16,7 @@
       <%= f.text_field :week %>
 
       <%= f.submit "Update matchup", class: "btn btn-large btn-primary" %>
+      <%= link_to "Cancel", league_matchups_path(@league), class: "btn btn-mini btn-primary" %>
     <% end %>
   </div>
 </div>
