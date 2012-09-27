@@ -11,6 +11,9 @@
           <%= link_to "Add new team", new_league_team_path(@league), class: "btn btn-mini btn-primary" %>
         </div>
       <% end %>
+      <div class="center">
+        <%= link_to "Show matchups", league_matchups_path(@league), class: "btn btn-mini btn-primary" %>
+      </div>
     </li>
   </ul>
 </div>

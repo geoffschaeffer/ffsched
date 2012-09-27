@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120922210347) do
+ActiveRecord::Schema.define(:version => 20120927043415) do
 
   create_table "leagues", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(:version => 20120922210347) do
   end
 
   add_index "leagues", ["name"], :name => "index_leagues_on_name", :unique => true
+
+  create_table "matchups", :force => true do |t|
+    t.integer  "team1_id"
+    t.integer  "team2_id"
+    t.integer  "week"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "league_id"
+  end
+
+  add_index "matchups", ["league_id"], :name => "index_matchups_on_league_id"
+  add_index "matchups", ["team1_id", "team2_id"], :name => "index_matchups_on_team1_id_and_team2_id", :unique => true
+  add_index "matchups", ["team1_id"], :name => "index_matchups_on_team1_id"
+  add_index "matchups", ["team2_id"], :name => "index_matchups_on_team2_id"
 
   create_table "teams", :force => true do |t|
     t.string   "name"

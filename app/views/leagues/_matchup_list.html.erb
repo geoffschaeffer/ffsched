@@ -1,0 +1,13 @@
+<div id="matchup-list">
+  <ul class="matchups">
+    <% if @league.matchups.any? %>
+      <h3>Matchups</h3>
+      <%= render @league.matchups %>
+    <% end %>
+    <li>
+      <div class="center">
+        <%= link_to "Add new matchup", new_league_matchup_path(@league), class: "btn btn-mini btn-primary" %>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,7 @@
+<% match_str = "Matchups for #{@league.name}" %>
+<% provide(:title, match_str) %>
+<h1><%= match_str %></h1>
+<%= render 'leagues/matchup_list' %>
+<div class="center">
+  <%= link_to "Back to league", league_path(@league), class: "btn btn-large btn-primary" %>
+</div>

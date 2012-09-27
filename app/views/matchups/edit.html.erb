@@ -1,0 +1,21 @@
+<% provide(:title, 'Update Matchup') %>
+<h1>Update Matchup</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [@league, @matchup] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :team1_id %>
+      <%= f.text_field :team1_id %>
+
+      <%= f.label :team2_id %>
+      <%= f.text_field :team2_id %>
+
+      <%= f.label :week %>
+      <%= f.text_field :week %>
+
+      <%= f.submit "Update matchup", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

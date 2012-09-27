@@ -1,0 +1,21 @@
+<% provide(:title, 'Create Matchup') %>
+<h1>Create Matchup</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [@league, @matchup] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :team1_id %>
+      <%= f.select :team1_id, @league.teams.map{|u| [u.name,u.id]} %>
+
+      <%= f.label :team2_id %>
+      <%= f.select :team2_id, @league.teams.map{|u| [u.name,u.id]} %>
+
+      <%= f.label :week %>
+      <%= f.select :week, (1..13).map{|u| [u,u]} %>
+
+      <%= f.submit "Create matchup", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
