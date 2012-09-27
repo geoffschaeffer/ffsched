@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [@league, @team] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :owner %>
+      <%= f.text_field :owner %>
+
+      <%= f.submit btn_label, class: "btn btn-large btn-primary" %>
+      <%= link_to "Cancel", league_teams_path(@league), class: "btn btn-mini btn-primary" %>
+    <% end %>
+  </div>
+</div>
