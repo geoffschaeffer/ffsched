@@ -7,4 +7,8 @@ FactoryGirl.define do
     sequence(:name)  { |n| "Team #{n}" }
     sequence(:owner)  { |n| "Owner #{n}" }
   end
+
+  factory :matchup do
+    week 1
+  end
 end

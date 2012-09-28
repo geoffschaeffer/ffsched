@@ -8,6 +8,7 @@ class Matchup < ActiveRecord::Base
   validates :team1_id, presence: true
   validates :team2_id, presence: true
   validates :league_id, presence: true
+  validates :week, presence: true
 
   #validates_uniqueness_of :team1_id, { scope: :team2_id, message: "already has a matchup with Team2" }
   #validates_uniqueness_of :team2_id, { scope: :team1_id, message: "already has a matchup with Team1" }
@@ -33,6 +34,8 @@ class Matchup < ActiveRecord::Base
 
     "#{team1_name} plays #{team2_name} on week #{week}"
   end
+
+  private
 
   def team_cannot_play_self
      if team1_id == team2_id then
