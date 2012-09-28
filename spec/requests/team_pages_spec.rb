@@ -6,12 +6,18 @@ describe "Team pages" do
 
   describe "show page" do
     let(:league) { FactoryGirl.create(:league) }
-    let!(:team) { FactoryGirl.create(:team, league: league) }
-    before { visit league_team_path(league, team) }
+    let!(:team1) { FactoryGirl.create(:team, league: league) }
+    let!(:team2) { FactoryGirl.create(:team, league: league) }
+    let!(:matchup) { FactoryGirl.create(:matchup, league: league, team1: team1, team2: team2) }
+    before { visit league_team_path(league, team1) }
 
-    it { should have_selector('h1', text: team.name) }
-    it { should have_selector('title', text: team.name) }
-    it { should have_selector('h2', text: team.owner) }
+    it { should have_selector('h1', text: team1.name) }
+    it { should have_selector('title', text: team1.name) }
+    it { should have_selector('h2', text: team1.owner) }
+
+    describe "matchups" do
+      it { should have_content(matchup.get_display_name) }
+    end
   end
 
   describe "create team" do
