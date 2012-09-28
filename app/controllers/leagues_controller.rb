@@ -1,5 +1,4 @@
 class LeaguesController < ApplicationController
-
   respond_to :html
   respond_to :xml
 
